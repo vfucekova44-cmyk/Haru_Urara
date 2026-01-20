@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-<header class="main-header">
 
-    <div class="logo">
-        <a href="/">
-            <img src="haru.png" alt="Haru Urara" class="small">
+<head>
+    <header class="main-header">
+
+        <div class="logo">
+            <a href="/">
+                <img src="haru.png" alt="Haru Urara" class="small">
             </a>
-    </div>
-      <h1>Haru Urara</h1>
-    <nav class="main-nav">
-        <ul>
-            <li><a href="#domov">Domov</a></li>
-            <li><a href="#o-nas">O Nás</a></li>
-            <li><a href="#sluzby">Služby</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
-</header>
-<style>
-        body { margin: 0; font-family: Arial, sans-serif; }
-        
+        </div>
+        <h1>Haru Urara</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#domov">Domov</a></li>
+                <li><a href="#o-nas">O Nás</a></li>
+                <li><a href="#sluzby">Služby</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
         .main-header {
             background-color: #c820ac;
             padding: 15px 30px;
@@ -28,11 +33,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            /* PRIDANÉ RIADKY PRE ANIMÁCIU */
+            animation: slideDownHeader 0.8s ease-out forwards;
+            position: relative;
+            z-index: 1000;
         }
+
         .small {
-            width: 50%;
-            height: auto;
+            height: 50px;
+            /* Uprav podľa potreby */
+            width: auto;
         }
+
         .logo a {
             color: white;
             text-decoration: none;
@@ -45,7 +57,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 25px; 
+            gap: 25px;
         }
 
         .main-nav a {
@@ -56,90 +68,99 @@
         }
 
         .main-nav a:hover {
-            color: #e696c7; 
+            color: #e696c7;
+        }
+
+        @keyframes slideDownHeader {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
 
 <body>
-<main class="main-content">
-    
-    <section class="sections"> 
-        
-        <article class="content-section">
-            <h2>Vitajte na našej stránke</h2>
-            <p> Sme malá firma ktorá poskytuje služby a predáva veci.
-            </p>
-        </article>
-        
-        <article class="content-section">
-            <h2>Čo poskytujeme</h2>
-            <p>Poskytujeme služby na účely vaším mozgom nepobrané</p>
-            <p>A aké veci predávame?</p>
-            <ul>
-                <li>Vaše túžby</li>
-                <li>Naše myšlienky</li>
-                <li>Vaše sny</li>
-            </ul>
-        </article>
-        
-        <article class="content-section">
-            <h2>Chcete sa dozvedieť viac?</h2>
-            <p>Chcete tiež vedieť čo mi vieme?</p>
-            <a href="#kontakt" class="cta-button">Kontaktujte Nás</a>
-        </article>
+    <main class="main-content">
 
-    </section>
-    
-    <aside class="sidebar">
+        <section class="sections">
+
+            <article class="content-section hidden">
+                <h2>Vitajte na našej stránke</h2>
+                <p> Sme malá firma ktorá poskytuje služby a predáva veci.
+                </p>
+            </article>
+
+            <article class="content-section hidden">
+                <h2>Čo poskytujeme</h2>
+                <p>Poskytujeme služby na účely vaším mozgom nepobrané</p>
+                <p>A aké veci predávame?</p>
+                <ul>
+                    <li>Vaše túžby</li>
+                    <li>Naše myšlienky</li>
+                    <li>Vaše sny</li>
+                </ul>
+            </article>
+
+            <article class="content-section hidden">
+                <h2>Chcete sa dozvedieť viac?</h2>
+                <p>Chcete tiež vedieť čo mi vieme?</p>
+                <a href="#kontakt" class="cta-button">Kontaktujte Nás</a>
+            </article>
+
+        </section>
+
+        <aside class="sidebar">
         </aside>
-    
-</main>
+
+    </main>
 
 
 </body>
 <style>
+    .sections {
+        padding-right: 20px;
+    }
 
-.sections {
-    padding-right: 20px; 
-}
+    .content-section {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
 
-.content-section {
-    background-color: white; 
-    padding: 20px;
-    margin-bottom: 25px; 
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
-}
+    .content-section h2 {
+        color: #333;
+        border-bottom: 2px solid #7a1049;
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
 
-.content-section h2 {
-    color: #333;
-    border-bottom: 2px solid #7a1049;
-    padding-bottom: 10px;
-    margin-top: 0;
-}
+    .cta-button {
+        display: inline-block;
+        background-color: #af4c99;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
 
-.cta-button {
-    display: inline-block;
-    background-color: #af4c99;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #5b0946;
-}
+    .cta-button:hover {
+        background-color: #5b0946;
+    }
 </style>
 <main class="main-content">
-    
+
     <section class="sections">
-        </section>
-    
-    <aside class="sidebar">
+    </section>
+
+    <aside class="sidebar hidden">
         <h3>Chete byť sám sebou</h3>
         <ul>
             <li>Pridajte sa ku nám</li>
@@ -148,116 +169,213 @@
         </ul>
         <p>Zažite skutočnú slobodu</p>
     </aside>
-<style>
-    .main-content {
+    <style>
+        .main-content {
 
-    display: grid; 
-    
-    grid-template-columns: 3fr 1fr; 
-    
-    gap: 30px;
-    padding: 20px;
-}
+            display: grid;
 
-.sidebar {
-    grid-column: 2 / 3; 
-}
-.sidebar {
-    background-color: #f4f4f4; 
-    padding: 20px; 
-    border-radius: 5px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
-}
+            grid-template-columns: 3fr 1fr;
 
-.sidebar h3 {
-    color: #42071f; 
-    margin-top: 0;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
+            gap: 30px;
+            padding: 20px;
+        }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
+        .sidebar {
+            grid-column: 2 / 3;
+        }
 
-.sidebar li {
-    padding: 5px 0;
-}
+        .sidebar {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-</style>
+        .sidebar h3 {
+            color: #42071f;
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
 
-</main>
-<footer class="main-footer">
-    <div class="footer-content">
-        <div class="footer-nav">
-            <h4>Rýchle Odkazy</h4>
-            <ul>
-                <li><a href="#pravidla">Pravidlá</a></li>
-                <li><a href="#kariera">Prihlásenie</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 5px 0;
+        }
+
+        /* Počiatočný stav pre animáciu */
+        .hidden {
+            opacity: 0;
+            transform: translateX(-30px);
+            /* Jemný posun doľava */
+            transition: all 0.8s ease-out;
+        }
+
+        /* Stav, keď sa sekcia ukáže */
+        .show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .sidebar.hidden {
+            opacity: 0;
+            transform: translateX(50px);
+            /* Posun vpravo */
+            transition: all 1s ease-out;
+        }
+
+        .sidebar.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+
+
+    <footer class="main-footer hidden">
+        <div class="footer-content">
+            <div class="footer-nav">
+                <h4>Rýchle Odkazy</h4>
+                <ul>
+                    <li><a href="#pravidla">Pravidlá</a></li>
+                    <li><a href="#kariera">Prihlásenie</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Kontakt</h4>
+                <p>Email: info@haruurara.sk</p>
+                <p>Tel: +421 666 666 666</p>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2025 Haru Urara. Všetky práva vyhradené.</p>
+            </div>
         </div>
-        
-        <div class="footer-contact">
-            <h4>Kontakt</h4>
-            <p>Email: info@haruurara.sk</p>
-            <p>Tel: +421 666 666 666</p>
-        </div>
-        
-        <div class="footer-copyright">
-            <p>&copy; 2025 Haru Urara. Všetky práva vyhradené.</p>
-        </div>
-    </div>
-</footer>
-<style>
-    .main-footer {
-    background-color: #6b0f5c; 
-    color: #ccc; 
-    padding: 30px 20px; 
-    margin-top: 50px; 
-}
+    </footer>
 
-.footer-content {
-    
-    display: flex;
-    justify-content: space-around; 
-    align-items: flex-start;
-    max-width: 1200px; 
-    margin: 0 auto; 
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            /* Zabezpečí, že sa nebude dať hýbať stránkou do bokov */
+        }
 
-.footer-nav, .footer-contact, .footer-copyright {
-    width: 30%; 
-}
+        .main-footer {
+            background-color: #6b0f5c;
+            color: #ccc;
+            padding: 30px 0;
+            margin-top: 50px;
 
-.main-footer h4 {
-    color: white;
-    border-bottom: 1px solid #555;
-    padding-bottom: 5px;
-}
+            /* JEDNODUCHÉ ROZTIAHNUTIE */
+            width: 100%;
+            /* Roztiahne sa na celú šírku */
+            display: block;
+            /* Zabezpečí, že stojí samostatne */
+        }
 
-.main-footer a {
-    color: #ccc;
-    text-decoration: none;
-}
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-around;
+        }
 
-.main-footer a:hover {
-    color: #470a33;
-}
-@media (max-width: 600px) {
-    .footer-content {
-       
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center;
-    }
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
 
-    .footer-nav, .footer-contact, .footer-copyright {
-        width: 100%; 
-        margin-bottom: 20px;
-    }
-}
-</style>
+        /* Toto ho zobrazí - JavaScript pridá túto triedu pri skrolovaní */
+        .show {
+            opacity: 1;
+            transform: translateY(0) !important;
+        }
+
+
+        .footer-nav,
+        .footer-contact,
+        .footer-copyright {
+            width: 30%;
+        }
+
+        .main-footer h4 {
+            color: white;
+            border-bottom: 1px solid #555;
+            padding-bottom: 5px;
+        }
+
+        .main-footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .main-footer a:hover {
+            color: #d66cb3;
+        }
+
+        @media (max-width: 600px) {
+            .footer-content {
+
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-nav,
+            .footer-contact,
+            .footer-copyright {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .main-footer.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-nav a {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #e696c7;
+            transition: width 0.3s ease;
+        }
+
+        .footer-nav a:hover::after {
+            width: 100%;
+            /* Čiarka sa roztiahne pod celý text */
+        }
+    </style>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 }); // Spustí sa, keď uvidíš aspoň 10% sekcie
+
+        // Vyhľadá všetky tvoje články s triedou hidden
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+    </body>
 
 </html>
